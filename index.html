@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Firmas - Prisa Media Colombia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face{
+            font-family: 'Spirited';
+            src: url(./fonts/High\ Spirited.ttf)
+        }
+        /* Estilos para el logo en el encabezado */
+        .text-center img.company-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 5px;
+            object-fit: contain;
+            
+        }
+        
+        /* Estilos para la firma */
+        .signature-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            line-height: 1.4;
+            color: #333333;
+        }
+        .imagenmod{
+            max-width: 200px;
+    height: auto;
+    display: block;
+        }
+        .company-logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+        
+        
+        .signature-container .company-logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+        
+        .signature-content {
+            flex: 1;
+        }
+        
+        .signature-name {
+            font-size: 50px;
+            
+            color: #000000;
+            margin-bottom: 2px;
+            font-family: 'Spirited';
+        }
+        
+        .signature-title {
+            font-size: 17px;
+            color: #d50000;
+            margin-bottom: 10px;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        
+        .signature-contact div {
+            margin-bottom: 3px;
+        }
+        
+        .signature-website {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .confidential {
+            font-size: 10px;
+            color: #555555;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <h1>Generador de Firmas de Correo</h1>
+            <h4>Prisa Media Colombia</h4>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        Complete los datos de su firma
+                    </div>
+                    <div class="card-body">
+                        <form id="signatureForm">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre y apellido (Mayúsculas y minúsculas, solo un nombre y un apellido)</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Escriba su nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Cargo</label>
+                                <input type="text" class="form-control" id="position" placeholder="Ej: Ejecutivo Comercial" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Teléfono oficina</label>
+                                <input type="tel" class="form-control" id="officePhone" placeholder="Ej: +57 3005145151" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="email" placeholder="Ej: ejemplo@caracol.com.co" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Teléfono personal (Opcional)</label>
+                                <input type="tel" class="form-control" id="personalPhone" placeholder="Ej: +57 3005145151">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Dirección de oficina (Opcional)</label>
+                                <input type="text" class="form-control" id="officeAddress" placeholder="Ej: Calle 67 #7-37 Piso 7">
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-magic me-2"></i>Generar firma
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <i class="fas fa-eye me-2"></i>Vista previa
+                    </div>
+                    <div class="card-body preview-area" id="signaturePreview">
+                        <p class="text-muted">La vista previa de tu firma aparecerá aquí...</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button id="copyHtml" class="btn btn-outline-primary btn-download">
+                            <i class="far fa-copy me-2"></i>Copiar HTML
+                        </button>
+                        <button id="downloadImage" class="btn btn-outline-success btn-download">
+                            <i class="fas fa-download me-2"></i>Descargar Imagen
+                        </button>
+                        <button id="downloadText" class="btn btn-outline-secondary">
+                            <i class="fas fa-file-alt me-2"></i>Copiar Texto
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
